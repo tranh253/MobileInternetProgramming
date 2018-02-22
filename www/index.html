@@ -17,30 +17,20 @@
   }
   #cordinate{
     position: absolute;
-    top: 82%;
-    left: 0%;
+    top: 10%;
+    left: 1%;
     z-index: 5;
-    background-color: #fff;
+    background-color: rgb(131, 129, 129);
     padding: 5px;
-    border: 1px solid #999;
-    text-align: center;
+    border: 1px solid rgb(29, 29, 29);
+    text-align: left;
     font-family: 'Roboto','sans-serif';
     line-height: 30px;
     padding-left: 10px;
+    border-radius: 1em;
+    width: 14.5em;
   }
-  #floating-panel {
-    position: absolute;
-    top: 8%;
-    left: 2%;
-    z-index: 5;
-    background-color: #fff;
-    padding: 5px;
-    border: 1px solid #999;
-    text-align: center;
-    font-family: 'Roboto','sans-serif';
-    line-height: 30px;
-    padding-left: 10px;
-  }
+ 
 
 
   #direction{
@@ -48,14 +38,23 @@
     top: 15%;
     left: 2%;
     z-index: 5;
-    background-color: #fff;
+    
     padding: 5px;
-    border: 1px solid #999;
+    
     text-align: center;
     font-family: 'Roboto','sans-serif';
     line-height: 30px;
     padding-left: 10px;
   }
+  #address, #submit, #address2, #destination, #dir, #dis{
+    font-size: 35;
+    border-radius: 1em;
+    }
+    #longitude, #latitude, #journey{
+      border-radius: 0.4em;
+      width: 15em;
+    }
+    
   </style>
 </head>
 <body>
@@ -63,18 +62,16 @@
 
   </div>
   <div id="cordinate">
+    <input id="address" type="textbox" value="">&nbsp<input id="submit" type="button" value="Search" ><br>
+    <input id="address2" type="textbox" value="">&nbsp<input id="destination" type="button" value="Search" ><br>
+    <input id="dir" type="button" value="Direction" >
+    <input id="dis" type="button" value="Distance" >
     <input id="longitude" type="textbox"><br>
     <input id="latitude" type="textbox"><br>
     <input id="journey" type="textbox">
 
-  </div>
-  <div id="floating-panel">
-    <input id="address" type="textbox" value="">
-    <input id="submit" type="button" value="Search" ><br>
-    <input id="address2" type="textbox" value="">
-    <input id="destinaion" type="button" value="Search" ><br>
-    <input id="dir" type="button" value="Direction" >
-    <input id="dis" type="button" value="Distance" >
+
+    
   </div>
 
   <div id="map"></div>
