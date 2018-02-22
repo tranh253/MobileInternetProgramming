@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geocoding service</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #cordinate{
+        position: absolute;
+        top: 82%;
+        left: 0%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 8%;
+        left: 2%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+
+      #direction{
+        position: absolute;
+        top: 15%;
+        left: 2%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="direction">
+
+    </div>
+    <div id="cordinate">
+      <input id="longitude" type="textbox"><br>
+      <input id="latitude" type="textbox"><br>
+      <input id="journey" type="textbox">
+
+    </div>
+    <div id="floating-panel">
+      <input id="address" type="textbox" value="">
+      <input id="submit" type="button" value="Search" ><br>
+      <input id="address2" type="textbox" value="">
+      <input id="destinaion" type="button" value="Search" ><br>
+      <input id="dir" type="button" value="Direction" >
+      <input id="dis" type="button" value="Distance" >
+    </div>
+
+    <div id="map"></div>
+
+    <script src="./js/map.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmVD9vSThqp7gggOXQHB8aNOzC8gjyvLA&callback=initMap">
+    </script>
+
+  </body>
+</html>

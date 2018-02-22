@@ -1,0 +1,65 @@
+{
+  "_from": "cordova-plugin-googlemaps",
+  "_id": "cordova-plugin-googlemaps@2.2.2",
+  "_inBundle": false,
+  "_integrity": "sha1-cxpAKv9oGmYKc+9rU/JSJc/K1Cs=",
+  "_location": "/cordova-plugin-googlemaps",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-googlemaps",
+    "name": "cordova-plugin-googlemaps",
+    "escapedName": "cordova-plugin-googlemaps",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-googlemaps/-/cordova-plugin-googlemaps-2.2.2.tgz",
+  "_shasum": "731a402aff681a660a73ef6b53f25225cfcad42b",
+  "_spec": "cordova-plugin-googlemaps",
+  "_where": "D:\\IT2018\\googlemaps\\map",
+  "author": {
+    "name": "Masashi Katsumata, Hirbod Mirjavadi"
+  },
+  "bugs": {
+    "url": "https://github.com/mapsplugin/cordova-plugin-googlemaps/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-googlemaps",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Google Maps native SDK for Android and iOS",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=6.2.0"
+    }
+  ],
+  "homepage": "https://github.com/mapsplugin/cordova-plugin-googlemaps",
+  "keywords": [
+    "google",
+    "maps",
+    "geo",
+    "google maps",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-googlemaps",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git"
+  },
+  "version": "2.2.2"
+}
