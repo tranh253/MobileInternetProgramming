@@ -35,10 +35,10 @@ function initMap() {
              lat: position.coords.latitude,
              lng: position.coords.longitude
            };
-           document.getElementById('longitude').value ="longitude: "+   position.coords.longitude;
-           document.getElementById('latitude').value ="latitude: "+  position.coords.latitude;
+           document.getElementById('long').value ="longitude: "+   position.coords.longitude;
+           document.getElementById('lat').value ="latitude: "+  position.coords.latitude;
            infoWindow.setPosition(pos);
-           infoWindow.setContent('You are here');
+           infoWindow.setContent('Your location is here');
            infoWindow.open(map);
            map.setCenter(pos);
          }, function() {
@@ -51,16 +51,16 @@ function initMap() {
 
   var geocoder = new google.maps.Geocoder();
 
-  document.getElementById('submit').addEventListener('click', function() {
+  document.getElementById('search1').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
 
-  document.getElementById('destination').addEventListener('click', function() {
+  document.getElementById('search2').addEventListener('click', function() {
     destinationAddress(geocoder, map);
   });
 
-  document.getElementById('dir').addEventListener('click', onChangeHandler);
-  document.getElementById('dis').addEventListener('click', function() {
+  document.getElementById('show').addEventListener('click', onChangeHandler);
+  document.getElementById('distance').addEventListener('click', function() {
     distance(service,geocoder);
   });
 }
@@ -74,11 +74,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       }
 //SEARCH((
 function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('address').value;
-  geocoder.geocode({'address': address}, function(results, status) {
+  var first_add = document.getElementById('origin').value;
+  geocoder.geocode({'address': first_add}, function(results, status) {
     if (status === 'OK') { //indicates that no errors occurred; the address was successfully parsed and at least one geocode was returned.
-      document.getElementById('longitude').value ="longitude: "+  results[0].geometry.location.lng();
-      document.getElementById('latitude').value ="latitude: "+  results[0].geometry.location.lat();
+      document.getElementById('long').value ="longitude: "+  results[0].geometry.location.lng();
+      document.getElementById('lat').value ="latitude: "+  results[0].geometry.location.lat();
       start =results[0].geometry.location;
       resultsMap.setCenter(results[0].geometry.location);
       var marker = new google.maps.Marker({
@@ -93,11 +93,11 @@ function geocodeAddress(geocoder, resultsMap) {
 }
 //SEARCH))
 function destinationAddress(geocoder, resultsMap) {
-  var address2 = document.getElementById('address2').value;
-  geocoder.geocode({'address': address2}, function(results, status) {
+  var second_add = document.getElementById('end').value;
+  geocoder.geocode({'address': second_add}, function(results, status) {
     if (status === 'OK') { //indicates that no errors occurred; the address was successfully parsed and at least one geocode was returned.
-      document.getElementById('longitude').value ="longitude: "+  results[0].geometry.location.lng();
-      document.getElementById('latitude').value ="latitude: "+  results[0].geometry.location.lat();
+      document.getElementById('long').value ="longitude: "+  results[0].geometry.location.lng();
+      document.getElementById('lat').value ="latitude: "+  results[0].geometry.location.lat();
       end =results[0].geometry.location;
       resultsMap.setCenter(results[0].geometry.location);
       var marker = new google.maps.Marker({
@@ -122,8 +122,8 @@ function calculateAndDisplayRoute(directionsDisplay, directionsService,
         // Retrieve the start and end locations and create a DirectionsRequest using
         // WALKING directions.
         directionsService.route({
-          origin: document.getElementById('address').value,
-          destination: document.getElementById('address2').value,
+          origin: document.getElementById('origin').value,
+          destination: document.getElementById('end').value,
           travelMode: 'WALKING'
         }, function(response, status) {
           // Route the directions and pass the response to a function to create
@@ -154,8 +154,8 @@ function attachInstructionText(stepDisplay, marker, text, map) {
 function distance(service,geocoder){
 
   service.getDistanceMatrix({
-          origins: [document.getElementById('address').value],
-          destinations: [document.getElementById('address2').value],
+          origins: [document.getElementById('origin').value],
+          destinations: [document.getElementById('end').value],
           travelMode: 'DRIVING',
         }, function(response, status) {
           if (status !== 'OK') {
@@ -168,7 +168,7 @@ function distance(service,geocoder){
               for(var j=0; j<results.length;j++){
               var element = results[j];
               var dt = element.distance.text;
-              document.getElementById('journey').value = dt;
+              document.getElementById('range').value = dt;
               };
             };
           }
