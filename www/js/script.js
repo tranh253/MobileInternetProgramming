@@ -26,17 +26,17 @@ function initMap() {
               directionsDisplay, directionsService, markers, stepDisplay, map);
         };
 
-//SHOW LOCATION
+
   infoWindow = new google.maps.InfoWindow;
-       // Try HTML5 geolocation.
+       
        if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function(position) {
            var pos = {
              lat: position.coords.latitude,
              lng: position.coords.longitude
            };
-           document.getElementById('long').value ="longitude: "+   position.coords.longitude;
            document.getElementById('lat').value ="latitude: "+  position.coords.latitude;
+           document.getElementById('long').value ="longitude: "+   position.coords.longitude;
            infoWindow.setPosition(pos);
            infoWindow.setContent('Your location is here');
            infoWindow.open(map);
@@ -72,13 +72,13 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-//SEARCH((
+//SEARCH FIRST_ADDRESS
 function geocodeAddress(geocoder, resultsMap) {
   var first_add = document.getElementById('origin').value;
   geocoder.geocode({'address': first_add}, function(results, status) {
     if (status === 'OK') { //indicates that no errors occurred; the address was successfully parsed and at least one geocode was returned.
-      document.getElementById('long').value ="longitude: "+  results[0].geometry.location.lng();
       document.getElementById('lat').value ="latitude: "+  results[0].geometry.location.lat();
+      document.getElementById('long').value ="longitude: "+  results[0].geometry.location.lng();
       start =results[0].geometry.location;
       resultsMap.setCenter(results[0].geometry.location);
       var marker = new google.maps.Marker({
@@ -91,13 +91,13 @@ function geocodeAddress(geocoder, resultsMap) {
     }
   });
 }
-//SEARCH))
+//SEARCH SECOND_ADDRESS
 function destinationAddress(geocoder, resultsMap) {
   var second_add = document.getElementById('end').value;
   geocoder.geocode({'address': second_add}, function(results, status) {
     if (status === 'OK') { //indicates that no errors occurred; the address was successfully parsed and at least one geocode was returned.
-      document.getElementById('long').value ="longitude: "+  results[0].geometry.location.lng();
       document.getElementById('lat').value ="latitude: "+  results[0].geometry.location.lat();
+      document.getElementById('long').value ="longitude: "+  results[0].geometry.location.lng();
       end =results[0].geometry.location;
       resultsMap.setCenter(results[0].geometry.location);
       var marker = new google.maps.Marker({
@@ -111,7 +111,7 @@ function destinationAddress(geocoder, resultsMap) {
   });
 }
 
-//((DESTIONATION
+//SHOW DIRECTION
 function calculateAndDisplayRoute(directionsDisplay, directionsService,
           markers, stepDisplay, map) {
         // First, remove any existing markers from the map.
@@ -150,7 +150,7 @@ function attachInstructionText(stepDisplay, marker, text, map) {
 //
 
 
-//Distance
+//CALCULATE DISTANCE
 function distance(service,geocoder){
 
   service.getDistanceMatrix({
