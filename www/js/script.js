@@ -31,16 +31,16 @@ function initMap() {
        
        if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function(position) {
-           var pos = {
+           var GPS = {
              lat: position.coords.latitude,
              lng: position.coords.longitude
            };
            document.getElementById('lat').value ="latitude: "+  position.coords.latitude;
            document.getElementById('long').value ="longitude: "+   position.coords.longitude;
-           infoWindow.setPosition(pos);
+           infoWindow.setPosition(GPS);
            infoWindow.setContent('Your location is here');
            infoWindow.open(map);
-           map.setCenter(pos);
+           map.setCenter(GPS);
          }, function() {
            handleLocationError(true, infoWindow, map.getCenter());
          });
@@ -65,8 +65,8 @@ function initMap() {
   });
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
+function handleLocationError(browserHasGeolocation, infoWindow, GPS) {
+        infoWindow.setPosition(GPS);
         infoWindow.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
